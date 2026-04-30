@@ -8,13 +8,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(2DCurveAnimations ${CMAKE_SOURCE_DIR}/src/Main.cpp)
 
-# Hide console window
-if (MSVC) # https://gist.github.com/optimalistel/dab127b58883b002a5ad
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
-else()
-    target_link_options(2DCurveAnimations PRIVATE "-mwindows")
-endif()
-
 # Raylib shared macro (so that it uses dllexport)
 target_compile_definitions(2DCurveAnimations PUBLIC USE_LIBTYPE_SHARED=1)
 
